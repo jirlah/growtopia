@@ -12,7 +12,7 @@ let player = { id: playerId, x: Math.random() * 400, y: Math.random() * 400 };
 
 // Load Gambar Karakter
 const playerImg = new Image();
-playerImg.src = "assets/player.png";
+playerImg.src = "assets/player.jpg";
 
 // Fungsi menyimpan posisi pemain ke Firebase
 function updatePlayerData() {
