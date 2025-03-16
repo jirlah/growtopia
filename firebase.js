@@ -1,7 +1,11 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// 🔹 GANTI DENGAN KONFIGURASI FIREBASE KAMU
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyA1JbIyH-JdsI6UoNlooLYojzuR8k1sjrs",
   authDomain: "growtopia-lite.firebaseapp.com",
@@ -13,8 +17,6 @@ const firebaseConfig = {
   measurementId: "G-7383GLZBSV"
 };
 
-// 🔹 Inisialisasi Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-
-export { db, ref, set, onValue };
+const analytics = getAnalytics(app);
