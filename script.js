@@ -1,6 +1,17 @@
 // 🔹 Inisialisasi Firebase
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
-import { firebaseConfig } from "./firebase.js";
+import { getDatabase, ref, set } from "firebase/database";
+import { db } from "./firebase.js"; // Pastikan ini diimpor dengan benar
+
+function updatePlayerData() {
+    if (!player || !player.id) {
+        console.error("Player data is missing or invalid:", player);
+        return;
+    }
+
+    set(ref(db, "players/" + player.id), player)
+        .then(() => console.log("Player data updated successfully:", player))
+        .catch((error) => console.error("Error updating player data:", error));
+}
 
 const app = firebase.initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -17,11 +28,6 @@ let player = { id: playerId, x: Math.random() * 400, y: Math.random() * 400 };
 // 🔹 Load Gambar Karakter
 const playerImg = new Image();
 playerImg.src = "assets/player.png";
-
-// 🔹 Simpan posisi pemain ke Firebase
-function updatePlayerData() {
-    set(ref(db, "players/" + playerId), player);
-}
 
 // 🔹 Ambil data pemain lain dari Firebase
 onValue(ref(db, "players"), (snapshot) => {
