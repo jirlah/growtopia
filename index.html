@@ -5,35 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multiplayer Game</title>
     <style>
-        body { text-align: center; margin: 0; overflow: hidden; }
-        canvas { background: #eee; display: block; margin: auto; }
-        #controls {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-        button {
-            width: 50px;
-            height: 50px;
-            font-size: 20px;
-        }
+        body { text-align: center; }
+        canvas { border: 1px solid black; }
+        .controls button { font-size: 20px; margin: 5px; }
     </style>
 </head>
 <body>
+    <h1>Multiplayer Game</h1>
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
 
-    <canvas id="gameCanvas" width="500" height="500"></canvas>
-
-    <!-- Tombol Virtual untuk HP -->
-    <div id="controls">
+    <div class="controls">
+        <button id="up">⬆️</button><br>
         <button id="left">⬅️</button>
-        <button id="up">⬆️</button>
         <button id="down">⬇️</button>
         <button id="right">➡️</button>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
